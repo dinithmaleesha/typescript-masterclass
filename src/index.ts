@@ -1,27 +1,42 @@
-// tuples
-let person: [string, number, boolean] = ['Mario', 2, true]
-
-
-// tuples examples
-
-let hsla: [number, string, string, number]
-hsla = [200, '100%', '50%', 1]
-
-let xy: [number, number]
-xy = [23, 56]
-
-function useCoors(): [number, number] {
-    const lat = 100
-    const long = 50
-
-    return [lat, long]
+// interfaces
+interface Author{
+    name: string,
+    avatar: string
 }
 
-const [lat, long] = useCoors()
+const authorOne: Author = {
+    name: 'Maleesha',
+    avatar: '/img/user.png'
+}
 
 
-// named tuples
+interface Post{
+    title: string,
+    body: string,
+    tags: string[],
+    create_at: Date,
+    author: Author
+}
 
-let user: [name: string, age: number]
+const newPost: Post = {
+    title: 'First post',
+    body: 'This is body',
+    tags: ['gaming', 'tecg'],
+    create_at: new Date(),
+    author: authorOne
+}
 
-user = ['Mario', 22]
+
+// as function argument types
+function createPost(post: Post): void {
+    console.log(`Created post: ${post.title} by ${post.author.name}`)
+}
+
+createPost(newPost)
+
+
+
+// with arrays
+let posts: Post[] = []
+
+posts.push(newPost)

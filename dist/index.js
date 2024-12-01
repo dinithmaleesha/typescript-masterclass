@@ -1,17 +1,20 @@
 "use strict";
-// tuples
-let person = ['Mario', 2, true];
-// tuples examples
-let hsla;
-hsla = [200, '100%', '50%', 1];
-let xy;
-xy = [23, 56];
-function useCoors() {
-    const lat = 100;
-    const long = 50;
-    return [lat, long];
+const authorOne = {
+    name: 'Maleesha',
+    avatar: '/img/user.png'
+};
+const newPost = {
+    title: 'First post',
+    body: 'This is body',
+    tags: ['gaming', 'tecg'],
+    create_at: new Date(),
+    author: authorOne
+};
+// as function argument types
+function createPost(post) {
+    console.log(`Created post: ${post.title} by ${post.author.name}`);
 }
-const [lat, long] = useCoors();
-// named tuples
-let user;
-user = ['Mario', 22];
+createPost(newPost);
+// with arrays
+let posts = [];
+posts.push(newPost);
