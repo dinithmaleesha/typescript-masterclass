@@ -1,31 +1,52 @@
-// type aliases
+// union types
 
-// example 1 = tuple
-type Rgb = [number, number, number]
+let someId: number | string
 
-function getRandomColor(): Rgb {
-    const r = Math.floor(Math.random() * 255)
-    const g = Math.floor(Math.random() * 255)
-    const b = Math.floor(Math.random() * 255)
-
-    return [r, g, b]
-}
-const colorOne = getRandomColor()
-console.log(colorOne);
+someId = 1
+someId = '2'
 
 
-// example 2 = object literal
-
-type User = {
-    name: string,
-    score: number
-}
-
-const userOne: User = { name: 'Dinith', score: 12}
+let email: string | null = null
 
 
-function formatUser(user: User): void {
-    console.log(`${user.name} has a score of ${user.score}`);
+type Id = number | string
+let anotherId: Id
+
+
+
+// union type pitfall
+
+function swapIdType(id: Id): Id {
+    if(typeof id === 'string')
+        return parseInt(id)
+    else
+        return id.toString()
 }
 
-formatUser(userOne)
+const idOne = swapIdType(5)
+const idTwo = swapIdType('2')
+
+console.log(idOne, idTwo);
+
+
+// tagged interfaces
+interface User {
+    type: 'user'
+    userName: string,
+    email: string,
+    id: Id
+}
+interface Person {
+    type: 'person'
+    firstName: string,
+    age: number,
+    id: Id
+}
+
+function logDetails(value: User | Person): void {
+    if (value.type === 'user') {
+        console.log(value.email, value.userName);
+    } else {
+        console.log(value.firstName, value.age)
+    }
+}

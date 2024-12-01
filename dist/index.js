@@ -1,15 +1,25 @@
 "use strict";
-// type aliases
-function getRandomColor() {
-    const r = Math.floor(Math.random() * 255);
-    const g = Math.floor(Math.random() * 255);
-    const b = Math.floor(Math.random() * 255);
-    return [r, g, b];
+// union types
+let someId;
+someId = 1;
+someId = '2';
+let email = null;
+let anotherId;
+// union type pitfall
+function swapIdType(id) {
+    if (typeof id === 'string')
+        return parseInt(id);
+    else
+        return id.toString();
 }
-const colorOne = getRandomColor();
-console.log(colorOne);
-const userOne = { name: 'Dinith', score: 12 };
-function formatUser(user) {
-    console.log(`${user.name} has a score of ${user.score}`);
+const idOne = swapIdType(5);
+const idTwo = swapIdType('2');
+console.log(idOne, idTwo);
+function logDetails(value) {
+    if (value.type === 'user') {
+        console.log(value.email, value.userName);
+    }
+    else {
+        console.log(value.firstName, value.age);
+    }
 }
-formatUser(userOne);
