@@ -1,29 +1,32 @@
-// function
+// any type
+let age: any
+let title
 
-function addTwoNumber(a: number, b: number): number {
-    return a + b
+age = 12
+age = false
+age = 'Hello'
+
+title = 12
+title = 'Hello'
+title = false
+
+
+// any type in arrays
+let things: any[] = [true, 'Hello', 1, null]
+things.push({id: 123})
+
+
+
+// functions and any
+function addTogether(value: any): any {
+    return value + value
 }
 
-const subsractTwoNumber = (a: number, b: number): number => {
-    return a - b
-}
+const resultOne = addTogether('Hello')
+const resultTwo = addTogether(5)
 
-addTwoNumber(10, 1)
-subsractTwoNumber(10, 5)
-
-function addAllNumber(item: number[]) {
-    const total = item.reduce((a, c) => a + c, 0)
-    console.log(total)
-}
-
-addAllNumber([5, 7, 11, 3])
+console.log(resultTwo)
 
 
-// return type inference
 
-function formatGreeting(name: string, greeting: string) {
-    return `${greeting}, ${name}`
-}
-
-const result = formatGreeting('Mario', 'Hello')
-console.log(result)
+// usefull when migrating from js to ts because using any won't cause errors initially
