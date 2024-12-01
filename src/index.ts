@@ -1,32 +1,27 @@
-// any type
-let age: any
-let title
-
-age = 12
-age = false
-age = 'Hello'
-
-title = 12
-title = 'Hello'
-title = false
+// tuples
+let person: [string, number, boolean] = ['Mario', 2, true]
 
 
-// any type in arrays
-let things: any[] = [true, 'Hello', 1, null]
-things.push({id: 123})
+// tuples examples
 
+let hsla: [number, string, string, number]
+hsla = [200, '100%', '50%', 1]
 
+let xy: [number, number]
+xy = [23, 56]
 
-// functions and any
-function addTogether(value: any): any {
-    return value + value
+function useCoors(): [number, number] {
+    const lat = 100
+    const long = 50
+
+    return [lat, long]
 }
 
-const resultOne = addTogether('Hello')
-const resultTwo = addTogether(5)
-
-console.log(resultTwo)
+const [lat, long] = useCoors()
 
 
+// named tuples
 
-// usefull when migrating from js to ts because using any won't cause errors initially
+let user: [name: string, age: number]
+
+user = ['Mario', 22]

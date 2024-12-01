@@ -1,21 +1,17 @@
 "use strict";
-// any type
-let age;
-let title;
-age = 12;
-age = false;
-age = 'Hello';
-title = 12;
-title = 'Hello';
-title = false;
-// any type in arrays
-let things = [true, 'Hello', 1, null];
-things.push({ id: 123 });
-// functions and any
-function addTogether(value) {
-    return value + value;
+// tuples
+let person = ['Mario', 2, true];
+// tuples examples
+let hsla;
+hsla = [200, '100%', '50%', 1];
+let xy;
+xy = [23, 56];
+function useCoors() {
+    const lat = 100;
+    const long = 50;
+    return [lat, long];
 }
-const resultOne = addTogether('Hello');
-const resultTwo = addTogether(5);
-console.log(resultTwo);
-// usefull when migrating from js to ts because using any won't cause errors initially
+const [lat, long] = useCoors();
+// named tuples
+let user;
+user = ['Mario', 22];
