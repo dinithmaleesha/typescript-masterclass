@@ -17,8 +17,12 @@ class Pizza {
         this.base = b;
     }
 }
-const pizza = new Pizza('Mario Special', 15);
-pizza.addTopping('Mushrooms');
-pizza.addTopping('Olives');
-pizza.selectBase('garlic');
-console.log(pizza);
+const pizzaOne = new Pizza('Mario Special', 15);
+const pizzaTwo = new Pizza('Dinith Special', 10);
+function addMushroomtsToPizzas(pizzas) {
+    for (const p of pizzas) {
+        p.addTopping('mushrooms');
+    }
+}
+addMushroomtsToPizzas([pizzaOne, pizzaTwo]);
+console.log(pizzaOne, pizzaTwo);
