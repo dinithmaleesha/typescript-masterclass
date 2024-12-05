@@ -14,13 +14,17 @@ class DataCollection {
         this.data.push(val);
         return this.data;
     }
+    deleteOne(id) {
+        this.data = this.data.filter((item) => item.id !== id);
+    }
 }
 const users = new DataCollection([
-    { name: 'Dinith', score: 23 },
-    { name: 'Mario', score: 43 },
-    { name: 'Peach', score: 64 },
-    { name: 'Shaun', score: 35 },
+    { id: 1, name: 'Dinith', score: 23 },
+    { id: 2, name: 'Mario', score: 43 },
+    { id: 3, name: 'Peach', score: 64 },
+    { id: 4, name: 'Shaun', score: 35 },
 ]);
-users.add({ name: 'Luigi', score: 59 });
+users.add({ id: 5, name: 'Luigi', score: 59 });
 console.log('Load One: ', users.loadOne());
 console.log('Load All: ', users.loadAll());
+users.deleteOne(2);
