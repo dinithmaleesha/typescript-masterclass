@@ -1,29 +1,18 @@
 "use strict";
-// CSV writer project
-Object.defineProperty(exports, "__esModule", { value: true });
-const fs_1 = require("fs");
-class CSVWiter {
-    constructor(columns) {
-        this.columns = columns;
-        this.csv = this.columns.join(',') + '\n';
-    }
-    addRows(values) {
-        let rows = values.map((v) => this.formatRow(v));
-        this.csv += rows.join('\n');
-        console.log(this.csv);
-    }
-    save(filename) {
-        (0, fs_1.appendFileSync)(filename, this.csv);
-        this.csv = '\n';
-        console.log('File saved to ', filename);
-    }
-    formatRow(p) {
-        return this.columns.map((col) => p[col]).join(',');
-    }
+// enum
+var Priority;
+(function (Priority) {
+    Priority[Priority["Lowest"] = 0] = "Lowest";
+    Priority[Priority["Low"] = 1] = "Low";
+    Priority[Priority["Medium"] = 2] = "Medium";
+    Priority[Priority["High"] = 3] = "High";
+    Priority[Priority["Urgent"] = 4] = "Urgent";
+})(Priority || (Priority = {}));
+function addTicket(details, priority) {
+    if (priority === Priority.Low) { }
+    if (priority === 1) { }
+    if (priority === 2) { }
+    if (priority === 3) { }
+    if (priority === 4) { }
 }
-const writer = new CSVWiter(['id', 'amount', 'to', 'notes']);
-writer.addRows([
-    { id: 1, amount: 50, to: 'Yoshi', notes: 'for design work' },
-    { id: 2, amount: 40, to: 'Dinith', notes: 'for web work' }
-]);
-writer.save('./data/payments.csv');
+addTicket('fix', Priority.Urgent);
