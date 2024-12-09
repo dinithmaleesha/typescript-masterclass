@@ -1,0 +1,36 @@
+// sets in ts
+const names = new Set<string>()
+names.add('Mario')
+names.add('Peach')
+names.add('Luigi')
+names.add('Mario')
+// names.add(2)
+
+console.log(names)
+
+// sets with custom eypes
+interface User {
+    email: string
+    score: number
+}
+
+const user1: User = { email: 'mario@gmail,com', score: 10 }
+const user2: User = { email: 'peach@gmail,com', score: 56 }
+
+const users = new Set<User>()
+
+users.add(user1)
+users.add(user2)
+users.add(user1)
+
+
+console.log(users)
+
+
+
+// sets as functions arguments
+function logUserEmail(users: Set<User>): void {
+    users.forEach((user) => console.log(user.email))
+}
+
+logUserEmail(users)
